@@ -1,0 +1,80 @@
+[
+  {
+    "serviceId": 1,
+    "serviceName": "Winter Grooming & Fur Maintenance",
+    "providerName": "CozyPaws Salon",
+    "providerEmail": "contact@cozypaws.com",
+    "price": 40,
+    "rating": 4.9,
+    "slotsAvailable": 5,
+    "duration": "60 minutes",
+    "description": "A complete winter grooming session including warm-water bath, blow dry, and coat trimming to keep pets clean and warm.",
+    "image": "https://i.ibb.co.com/6RLvmLdm/image.png",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 2,
+    "serviceName": "Winter Health Check & Immunity Boost",
+    "providerName": "PetWell Veterinary Center",
+    "providerEmail": "info@petwellvet.com",
+    "price": 55,
+    "rating": 4.8,
+    "slotsAvailable": 8,
+    "duration": "45 minutes",
+    "description": "Comprehensive veterinary examination with winter diet consultation and immunity supplement recommendations.",
+    "image": "https://i.ibb.co.com/PvVTQ4kh/image.png",
+    "category": "Healthcare"
+  },
+  {
+    "serviceId": 3,
+    "serviceName": "Warm Shelter Setup Consultation",
+    "providerName": "HappyTail Home Care",
+    "providerEmail": "support@happytail.com",
+    "price": 30,
+    "rating": 4.7,
+    "slotsAvailable": 6,
+    "duration": "30 minutes",
+    "description": "Professional advice and setup planning for creating a warm, insulated, and cozy pet shelter during cold weather.",
+    "image": "https://i.ibb.co.com/rf3y0JwY/image.png",
+    "category": "Consultation"
+  },
+  {
+    "serviceId": 4,
+    "serviceName": "Paw & Skin Care Treatment",
+    "providerName": "FurWell Spa",
+    "providerEmail": "hello@furwellspa.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "duration": "40 minutes",
+    "description": "Hydration treatment for dry paws and skin to prevent cracking and irritation caused by cold, dry air.",
+    "image": "https://i.ibb.co.com/G4Q3YSrX/image.png",
+    "category": "Wellness"
+  },
+  {
+    "serviceId": 5,
+    "serviceName": "Winter Walk & Exercise Program",
+    "providerName": "TailMotion Pet Fitness",
+    "providerEmail": "bookings@tailmotion.com",
+    "price": 35,
+    "rating": 4.6,
+    "slotsAvailable": 10,
+    "duration": "1 hour",
+    "description": "Guided winter walking sessions with proper gear and safe routes to maintain pets’ activity during colder months.",
+    "image": "https://i.ibb.co.com/VWNQnyQj/image.png",
+    "category": "Outdoor Activity"
+  },
+  {
+    "serviceId": 6,
+    "serviceName": "Seasonal Diet & Nutrition Planning",
+    "providerName": "NutriPet Experts",
+    "providerEmail": "care@nutripet.com",
+    "price": 45,
+    "rating": 5.0,
+    "slotsAvailable": 7,
+    "duration": "50 minutes",
+    "description": "Personalized diet consultation focusing on winter nutrition, ensuring pets get proper vitamins and energy.",
+    "image": "https://i.ibb.co.com/hRKTvJNd/image.png",
+    "category": "Nutrition"
+  }
+]

@@ -7,7 +7,7 @@ const Navbar = () => {
   const [showNav, setShowNav] = useState(true);
 
   return (
-    <div className="mt-4 flex justify-between items-center container mx-auto px-4 md:px-10 lg:px-20 ">
+    <div className="mt-4 flex justify-between items-center container mx-auto px-4 md:px-10 lg:px-20">
       <h2 className="text-3xl font-bold ml-4 flex">
         <span>
           Pet<span className="text-yellow-400">Co</span>
