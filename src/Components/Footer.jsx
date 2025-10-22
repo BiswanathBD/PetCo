@@ -1,0 +1,30 @@
+import React from "react";
+import { MdOutlinePets } from "react-icons/md";
+
+const Footer = () => {
+  return (
+    <footer className="footer sm:footer-horizontal bg-black/80 text-base-content p-10">
+      <aside>
+        <h2 className="text-6xl font-bold flex">
+          <span>
+            Pet<span className="text-yellow-400">Co</span>
+          </span>
+          <MdOutlinePets className="text-yellow-400 mr-1" />
+        </h2>
+      </aside>
+      <nav>
+        <h6 className="footer-title">Company</h6>
+        <a className="link link-hover">About us</a>
+        <a className="link link-hover">Contact</a>
+      </nav>
+      <nav>
+        <h6 className="footer-title">Legal</h6>
+        <a className="link link-hover">Terms of use</a>
+        <a className="link link-hover">Privacy policy</a>
+        <a className="link link-hover">Cookie policy</a>
+      </nav>
+    </footer>
+  );
+};
+
+export default Footer;
