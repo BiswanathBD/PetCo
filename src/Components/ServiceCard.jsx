@@ -1,7 +1,6 @@
 import React from "react";
 
 const ServiceCard = ({ service }) => {
-  console.log(service);
   const { image, serviceName, rating, price } = service;
 
   return (

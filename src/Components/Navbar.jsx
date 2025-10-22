@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { HiMiniBars3, HiOutlineXMark } from "react-icons/hi2";
 import { MdOutlinePets } from "react-icons/md";
-import { Link, NavLink } from "react-router";
+import { Link, Navigate, NavLink } from "react-router";
+import { AuthContext } from "../Provider/AuthProvider";
+import profileIcon from "../assets/avater.webp";
 
 const Navbar = () => {
   const [showNav, setShowNav] = useState(true);
+  const { user, userSignOut } = use(AuthContext);
+  console.log(user);
+
+  const handleSignOut = () => {
+    userSignOut().then(() => {
+      alert("log out");
+    });
+    // <Navigate to={"/"}></Navigate>;
+  };
 
   return (
     <div className="mt-4 flex justify-between items-center container mx-auto px-4 md:px-10 lg:px-20">
@@ -27,13 +38,23 @@ const Navbar = () => {
           My Profile
         </NavLink>
       </div>
-      <div>
-        <Link
-          to={"/login"}
-          className="hidden md:block text-[#006E5C] bg-yellow-400 font-semibold px-4 py-2 rounded-full hover:bg-white transition"
-        >
-          Login
-        </Link>
+      <div className="flex gap-4">
+        {user && <img className="w-10 aspect-square object-cover rounded-full" src={user.photoURL || profileIcon} alt="" />}
+        {user ? (
+          <button
+            onClick={handleSignOut}
+            className="hidden md:block text-[#006E5C] bg-yellow-400 font-semibold px-4 py-2 rounded-full hover:bg-white transition"
+          >
+            Sign Out
+          </button>
+        ) : (
+          <Link
+            to={"/SignIn"}
+            className="hidden md:block text-[#006E5C] bg-yellow-400 font-semibold px-4 py-2 rounded-full hover:bg-white transition"
+          >
+            Sign In
+          </Link>
+        )}
       </div>
 
       {/* mobile navbar */}
@@ -52,7 +73,7 @@ const Navbar = () => {
       <div
         className={`md:hidden ${
           showNav ? " opacity-100 top-2" : "opacity-0 top-0"
-        } justify-center bg-white text-[#006E5C] absolute z-10 rounded-2xl right-12 py-4 px-8 transition-all`}
+        } justify-center bg-white text-[#006E5C] absolute z-10 rounded-2xl right-12 sm:right-28 py-4 px-8 transition-all`}
       >
         <div className="flex gap-4">
           <NavLink onClick={() => setShowNav(!showNav)} to={"/"}>

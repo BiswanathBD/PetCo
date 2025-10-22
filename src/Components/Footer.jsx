@@ -3,9 +3,9 @@ import { MdOutlinePets } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <footer className="footer sm:footer-horizontal bg-black/80 text-base-content p-10">
-      <aside>
-        <h2 className="text-6xl font-bold flex">
+    <footer className="footer sm:footer-horizontal bg-black/80 text-base-content p-10 justify-around">
+      <aside className="h-full flex items-center">
+        <h2 className="text-5xl font-bold flex">
           <span>
             Pet<span className="text-yellow-400">Co</span>
           </span>
