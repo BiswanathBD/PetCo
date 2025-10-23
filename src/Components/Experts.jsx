@@ -4,7 +4,7 @@ const Experts = () => {
   return (
     <div>
       <h3 className="text-4xl mt-20 font-semibold">Meet Our Expert Vets :</h3>
-      <div className="flex gap-4 items-center p-4 bg-white/20 rounded-2xl mt-8">
+      <div className="flex gap-4 items-center p-4 bg-white/20 rounded-2xl mt-4">
         <img
           className="w-16 aspect-square object-cover rounded-full"
           src="https://i.ibb.co.com/CK09sZqV/image.png"

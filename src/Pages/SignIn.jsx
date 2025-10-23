@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import toast from "react-hot-toast";
+import { VscEye, VscEyeClosed } from "react-icons/vsc";
 
 const SignIn = () => {
   const { signInWithPassword, signInWithGoogle, error, setError } =
@@ -11,6 +12,7 @@ const SignIn = () => {
   const { state } = useLocation();
 
   const [emailInput, setEmailInput] = useState("");
+  const [show, setShow] = useState(false);
 
   // Password sign in
   const handleSigninWithPassword = (e) => {
@@ -45,10 +47,8 @@ const SignIn = () => {
         Sign In Here!
       </h2>
 
-      {/* Error Message */}
       {error && <p className="text-center text-red-500 mb-2">{error}</p>}
 
-      {/* Email/Password Form */}
       <form onSubmit={handleSigninWithPassword} className="grid gap-3">
         <label className="label">Email</label>
         <input
@@ -65,14 +65,22 @@ const SignIn = () => {
         />
 
         <label className="label">Password</label>
-        <input
-          type="password"
-          name="password"
-          onChange={() => setError("")}
-          className="input bg-white text-gray-500 w-full"
-          placeholder="Password"
-          required
-        />
+        <div className="relative">
+          <input
+            type={show ? "text" : "password"}
+            name="password"
+            onChange={() => setError("")}
+            className="input bg-white text-gray-500 w-full pr-10"
+            placeholder="Password"
+            required
+          />
+          <div
+            onClick={() => setShow(!show)}
+            className="absolute top-2 right-2 text-neutral-500 text-2xl cursor-pointer z-10"
+          >
+            {show ? <VscEyeClosed></VscEyeClosed> : <VscEye></VscEye>}
+          </div>
+        </div>
 
         {/* Forgot Password Link */}
         <Link
