@@ -1,7 +1,7 @@
 import React, { use, useState } from "react";
 import { HiMiniBars3, HiOutlineXMark } from "react-icons/hi2";
 import { MdOutlinePets } from "react-icons/md";
-import { Link, Navigate, NavLink, useNavigate } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import profileIcon from "../assets/avater.webp";
 
@@ -22,12 +22,12 @@ const Navbar = () => {
 
   return (
     <div className="mt-4 flex justify-between items-center container mx-auto px-4 md:px-10 lg:px-20">
-      <h2 className="text-3xl font-bold ml-4 flex">
-        <span>
-          Pet<span className="text-yellow-400">Co</span>
-        </span>
-        <MdOutlinePets className="text-yellow-400 mr-1" />
-      </h2>
+        <Link className="text-3xl font-bold ml-4 flex">
+          <span>
+            Pet<span className="text-yellow-400">Co</span>
+          </span>
+          <MdOutlinePets className="text-yellow-400 mr-1" />
+        </Link>
 
       {/* large display navbar */}
       <div className="hidden md:flex gap-6 bg-white/10 px-8 border border-white/20 rounded-full nav">
@@ -43,11 +43,16 @@ const Navbar = () => {
       </div>
       <div className="md:flex gap-4 hidden">
         {user && (
-          <img
-            className="w-10 aspect-square object-cover rounded-full"
-            src={user.photoURL || profileIcon}
-            alt=""
-          />
+          <div className="relative group">
+            <img
+              className="w-10 aspect-square object-cover rounded-full"
+              src={user.photoURL || profileIcon}
+              alt=""
+            />
+            <p className="absolute text-nowrap w-fit bg-yellow-400 text-[#006E5C] px-3 py-1 rounded-l-full rounded-br-full -translate-x-38 group-hover:-translate-x-40 top-8 font-semibold opacity-0 group-hover:opacity-100 transition-all">
+              {user.displayName}
+            </p>
+          </div>
         )}
         {user ? (
           <button
