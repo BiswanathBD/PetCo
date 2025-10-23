@@ -49,7 +49,7 @@ const Navbar = () => {
               src={user.photoURL || profileIcon}
               alt=""
             />
-            <p className="absolute text-nowrap w-fit bg-yellow-400 text-[#006E5C] px-3 py-1 rounded-l-full rounded-br-full -translate-x-38 group-hover:-translate-x-40 top-8 font-semibold opacity-0 group-hover:opacity-100 transition-all">
+            <p className="absolute text-nowrap w-fit bg-yellow-400 text-[#006E5C] px-3 py-1 rounded-lg top-10 group-hover:top-12 font-semibold opacity-0 group-hover:opacity-100 transition-all">
               {user.displayName}
             </p>
           </div>

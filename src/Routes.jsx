@@ -6,6 +6,7 @@ import SignIn from "./Pages/SignIn";
 import SignUp from "./Pages/SignUp";
 import MyProfile from "./Private/MyProfile";
 import Details from "./Private/Details";
+import Reset from "./Pages/Reset";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
       {
         path: "/details/:id",
         element: <Details></Details>,
+      },
+      {
+        path: "/reset",
+        element: <Reset></Reset>
       },
     ],
   },

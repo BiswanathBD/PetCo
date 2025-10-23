@@ -1,37 +1,40 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 
 const SignIn = () => {
-  const { signInWithPassword, signInWithGoogle, setError } = use(AuthContext);
+  const { signInWithPassword, signInWithGoogle, error, setError } =
+    use(AuthContext);
   const navigate = useNavigate();
   const { state } = useLocation();
 
-  // Email/Password Sign-in
+  const [emailInput, setEmailInput] = useState("");
+
+  // Password sign in
   const handleSigninWithPassword = (e) => {
     e.preventDefault();
-    const form = e.target;
-    const email = form.email.value;
-    const password = form.password.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
 
     signInWithPassword(email, password)
       .then(() => {
-        form.reset();
+        e.target.reset();
+        setEmailInput("");
         setError("");
-        navigate(state || "/");
+        navigate(state?.from || "/");
       })
-      .catch((error) => setError(error.code));
+      .catch((err) => setError(err.code));
   };
 
-  // Google Sign-in
+  // Google sign in
   const handleSignInWithGoogle = () => {
     signInWithGoogle()
       .then(() => {
         setError("");
-        navigate(state || "/");
+        navigate(state?.from || "/");
       })
-      .catch((error) => setError(error.code));
+      .catch((err) => setError(err.code));
   };
 
   return (
@@ -40,25 +43,44 @@ const SignIn = () => {
         Sign In Here!
       </h2>
 
+      {/* Error Message */}
+      {error && <p className="text-center text-red-500 mb-2">{error}</p>}
+
       {/* Email/Password Form */}
       <form onSubmit={handleSigninWithPassword} className="grid gap-3">
         <label className="label">Email</label>
         <input
           type="email"
           name="email"
+          value={emailInput}
+          onChange={(e) => {
+            setEmailInput(e.target.value);
+            setError("");
+          }}
           className="input bg-white text-gray-500 w-full"
           placeholder="Email"
+          required
         />
+
         <label className="label">Password</label>
         <input
           type="password"
           name="password"
+          onChange={() => setError("")}
           className="input bg-white text-gray-500 w-full"
           placeholder="Password"
+          required
         />
-        <Link to={"/reset"} className="mt-2 hover:text-yellow-400">
+
+        {/* Forgot Password Link */}
+        <Link
+          to="/reset"
+          state={{ email: emailInput }}
+          className="mt-2 hover:text-yellow-400"
+        >
           Forgot Password?
         </Link>
+
         <button type="submit" className="py-2 rounded-sm bg-yellow-400 mt-4">
           Sign In
         </button>
@@ -77,9 +99,10 @@ const SignIn = () => {
         </span>
       </button>
 
+      {/* Sign Up Link */}
       <p className="text-center mt-4">
-        Don't have an account?{" "}
-        <Link to={"/SignUp"} className="font-semibold text-yellow-400">
+        Don&apos;t have an account?{" "}
+        <Link to="/SignUp" className="font-semibold text-yellow-400">
           Sign Up
         </Link>
       </p>
