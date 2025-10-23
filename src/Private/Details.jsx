@@ -46,13 +46,13 @@ const Details = () => {
 
   return (
     <div className="container mx-auto px-4 md:px-10 lg:px-20 my-8">
-      <div className="flex flex-col md:flex-row gap-6 bg-white/10 p-6 rounded-2xl shadow-lg backdrop-blur-md">
+      <div className="flex flex-col md:flex-row gap-8 bg-white/10 p-6 rounded-2xl shadow-lg backdrop-blur-md">
         {/* Left Side  Image */}
         <div className="md:w-1/2 aspect-4/3">
           <img
             src={image}
             alt={serviceName}
-            className="rounded-xl w-full h-full object-cover"
+            className="rounded-lg w-full h-full object-cover"
           />
         </div>
 

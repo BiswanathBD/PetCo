@@ -41,7 +41,7 @@ const Navbar = () => {
           My Profile
         </NavLink>
       </div>
-      <div className="flex gap-4">
+      <div className="md:flex gap-4 hidden">
         {user && (
           <img
             className="w-10 aspect-square object-cover rounded-full"
@@ -95,8 +95,33 @@ const Navbar = () => {
             My Profile
           </NavLink>
         </div>
-        <div className="grid justify-center items-center py-4">
-          Profile here
+        <div className="flex justify-between gap-4 md:hidden bg-[#006E5C] p-2 mt-4 rounded-full">
+          {user && (
+            <div className="flex justify-center items-center gap-2 text-xl">
+              <img
+                className="w-10 aspect-square object-cover rounded-full"
+                src={user.photoURL || profileIcon}
+                alt=""
+              />
+              <p className="text-white">{user.displayName}</p>
+            </div>
+          )}
+
+          {user ? (
+            <button
+              onClick={handleSignOut}
+              className="md:hidden text-[#006E5C] bg-yellow-400 font-semibold px-4 py-2 rounded-full hover:bg-white transition"
+            >
+              Sign Out
+            </button>
+          ) : (
+            <Link
+              to={"/SignIn"}
+              className="hidden md:block text-[#006E5C] bg-yellow-400 font-semibold px-4 py-2 rounded-full hover:bg-white transition"
+            >
+              Sign In
+            </Link>
+          )}
         </div>
       </div>
     </div>
