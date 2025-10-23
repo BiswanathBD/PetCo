@@ -1,20 +1,23 @@
 import React, { use, useState } from "react";
 import { HiMiniBars3, HiOutlineXMark } from "react-icons/hi2";
 import { MdOutlinePets } from "react-icons/md";
-import { Link, Navigate, NavLink } from "react-router";
+import { Link, Navigate, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import profileIcon from "../assets/avater.webp";
 
 const Navbar = () => {
   const [showNav, setShowNav] = useState(true);
   const { user, userSignOut } = use(AuthContext);
-  console.log(user);
+  const navigate = useNavigate();
 
   const handleSignOut = () => {
-    userSignOut().then(() => {
-      alert("log out");
-    });
-    // <Navigate to={"/"}></Navigate>;
+    userSignOut()
+      .then(() => {
+        alert("log out");
+      })
+      .finally(() => {
+        navigate("/");
+      });
   };
 
   return (
@@ -39,7 +42,13 @@ const Navbar = () => {
         </NavLink>
       </div>
       <div className="flex gap-4">
-        {user && <img className="w-10 aspect-square object-cover rounded-full" src={user.photoURL || profileIcon} alt="" />}
+        {user && (
+          <img
+            className="w-10 aspect-square object-cover rounded-full"
+            src={user.photoURL || profileIcon}
+            alt=""
+          />
+        )}
         {user ? (
           <button
             onClick={handleSignOut}

@@ -1,9 +1,11 @@
 import React, { use } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const SignIn = () => {
   const { signInWithPassword, setError } = use(AuthContext);
+  const navigate = useNavigate();
+  const { state } = useLocation();
 
   const handleSigninWithPassword = (e) => {
     e.preventDefault();
@@ -17,6 +19,9 @@ const SignIn = () => {
       })
       .catch((error) => {
         setError(error.code);
+      })
+      .finally(() => {
+        navigate(state || "/");
       });
   };
 

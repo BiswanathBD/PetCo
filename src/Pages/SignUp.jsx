@@ -1,6 +1,7 @@
 import { use } from "react";
 import { Link, Navigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
   const { createUserWithPass, setUser, setError } = use(AuthContext);
@@ -12,10 +13,15 @@ const SignUp = () => {
     const photoURL = form.photoUrl.value;
     const password = form.password.value;
 
-    createUserWithPass(email, password)
+    createUserWithPass(email, password, name, photoURL)
       .then((result) => {
         const user = result.user;
-        setUser(user);
+        updateProfile(user, {
+          displayName: name,
+          photoURL: photoURL,
+        }).then(() => {
+          setUser({ ...user, displayName: name, photoURL: photoURL });
+        });
       })
       .catch((error) => {
         setError(error.code);
@@ -29,7 +35,7 @@ const SignUp = () => {
       </h2>
       <form onSubmit={handleRegister} className="grid">
         {/* name */}
-        <label className="label">Email</label>
+        <label className="label">Name</label>
         <input
           type="text"
           name="name"
@@ -45,7 +51,7 @@ const SignUp = () => {
           placeholder="Email"
         />
         {/* photo url */}
-        <label className="label">Email</label>
+        <label className="label">Photo URL</label>
         <input
           type="text"
           name="photoUrl"
@@ -60,10 +66,6 @@ const SignUp = () => {
           className="input bg-white text-gray-500 w-full"
           placeholder="Password"
         />
-
-        <Link to={"/reset"} className="mt-2 hover:text-yellow-400">
-          Forget Password?
-        </Link>
         <button className="py-2 rounded-sm bg-yellow-400 mt-4">Sign Up</button>
       </form>
       <p className="text-center mt-4">
