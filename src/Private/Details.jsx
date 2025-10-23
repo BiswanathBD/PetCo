@@ -1,5 +1,5 @@
 import React, { use, useEffect } from "react";
-import { useParams, useLocation, Navigate } from "react-router";
+import { useParams, useLocation, Navigate, Link } from "react-router";
 import useServiceData from "../Hooks/useServiceData";
 import { AuthContext } from "../Provider/AuthProvider";
 
@@ -47,7 +47,7 @@ const Details = () => {
   return (
     <div className="container mx-auto px-4 md:px-10 lg:px-20 my-8">
       <div className="flex flex-col md:flex-row gap-8 bg-white/10 p-6 rounded-2xl shadow-lg backdrop-blur-md">
-        {/* Left Side  Image */}
+        {/* Left Side Image */}
         <div className="md:w-1/2 aspect-4/3">
           <img
             src={image}
@@ -56,7 +56,7 @@ const Details = () => {
           />
         </div>
 
-        {/* Right Side - Details */}
+        {/* Right Side */}
         <div className="md:w-1/2 text-gray-200 flex flex-col justify-between">
           <div>
             <h2 className="text-4xl text-yellow-400 font-bold mb-3">
@@ -100,9 +100,12 @@ const Details = () => {
             )}
           </div>
 
-          <button className="mt-6 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold py-2 px-6 rounded-lg transition-colors duration-200">
+          <Link
+            to={"/booking"}
+            className="mt-6 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold py-2 px-6 rounded-lg transition-colors duration-200"
+          >
             Book a Service
-          </button>
+          </Link>
         </div>
       </div>
     </div>

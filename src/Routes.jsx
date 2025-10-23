@@ -7,6 +7,8 @@ import SignUp from "./Pages/SignUp";
 import MyProfile from "./Private/MyProfile";
 import Details from "./Private/Details";
 import Reset from "./Pages/Reset";
+import BookService from "./Pages/BookService";
+import UpdateProfile from "./Pages/UpdateProfile";
 
 export const router = createBrowserRouter([
   {
@@ -39,7 +41,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/reset",
-        element: <Reset></Reset>
+        element: <Reset></Reset>,
+      },
+      {
+        path: "/booking",
+        element: <BookService></BookService>,
+      },
+      {
+        path: "/update",
+        element: <UpdateProfile></UpdateProfile>,
       },
     ],
   },

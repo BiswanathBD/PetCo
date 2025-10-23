@@ -4,6 +4,7 @@ import { MdOutlinePets } from "react-icons/md";
 import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import profileIcon from "../assets/avater.webp";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const [showNav, setShowNav] = useState(true);
@@ -13,7 +14,7 @@ const Navbar = () => {
   const handleSignOut = () => {
     userSignOut()
       .then(() => {
-        alert("log out");
+        toast.success("Log Out Successfully");
       })
       .finally(() => {
         navigate("/");
@@ -22,12 +23,12 @@ const Navbar = () => {
 
   return (
     <div className="mt-4 flex justify-between items-center container mx-auto px-4 md:px-10 lg:px-20">
-        <Link className="text-3xl font-bold ml-4 flex">
-          <span>
-            Pet<span className="text-yellow-400">Co</span>
-          </span>
-          <MdOutlinePets className="text-yellow-400 mr-1" />
-        </Link>
+      <Link className="text-3xl font-bold ml-4 flex">
+        <span>
+          Pet<span className="text-yellow-400">Co</span>
+        </span>
+        <MdOutlinePets className="text-yellow-400 mr-1" />
+      </Link>
 
       {/* large display navbar */}
       <div className="hidden md:flex gap-6 bg-white/10 px-8 border border-white/20 rounded-full nav">
@@ -45,11 +46,11 @@ const Navbar = () => {
         {user && (
           <div className="relative group">
             <img
-              className="w-10 aspect-square object-cover rounded-full"
+              className="w-10 aspect-square object-cover rounded-full  border border-yellow-400"
               src={user.photoURL || profileIcon}
               alt=""
             />
-            <p className="absolute text-nowrap w-fit bg-yellow-400 text-[#006E5C] px-3 py-1 rounded-lg top-10 group-hover:top-12 font-semibold opacity-0 group-hover:opacity-100 transition-all">
+            <p className="absolute text-nowrap w-fit bg-yellow-400 text-[#006E5C] px-3 py-1 rounded-lg top-10 group-hover:top-12 font-semibold opacity-0 group-hover:opacity-100 transition-all z-20">
               {user.displayName}
             </p>
           </div>

@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
   const { createUserWithPass, signInWithGoogle, setUser, error, setError } =
@@ -12,6 +13,7 @@ const SignUp = () => {
 
   // Email/Password Registration
   const handleRegister = (e) => {
+    setError("");
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
@@ -21,9 +23,10 @@ const SignUp = () => {
 
     createUserWithPass(email, password)
       .then((result) => {
+        toast.success("Sign Up Successfully");
         const user = result.user;
         return updateProfile(user, { displayName: name, photoURL }).then(
-          () => user
+          () => {}
         );
       })
       .then((user) => {
@@ -39,6 +42,7 @@ const SignUp = () => {
 
   // Google Sign-in
   const handleSignInWithGoogle = () => {
+    setError("");
     signInWithGoogle()
       .then(() => {
         setError("");

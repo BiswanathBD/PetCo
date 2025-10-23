@@ -2,6 +2,7 @@ import React, { use, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
+import toast from "react-hot-toast";
 
 const SignIn = () => {
   const { signInWithPassword, signInWithGoogle, error, setError } =
@@ -13,26 +14,27 @@ const SignIn = () => {
 
   // Password sign in
   const handleSigninWithPassword = (e) => {
+    setError("");
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
 
     signInWithPassword(email, password)
       .then(() => {
-        e.target.reset();
-        setEmailInput("");
+        toast.success("Sign In Successfully");
         setError("");
-        navigate(state?.from || "/");
+        navigate(state || "/");
       })
       .catch((err) => setError(err.code));
   };
 
   // Google sign in
   const handleSignInWithGoogle = () => {
+    setError("");
     signInWithGoogle()
       .then(() => {
         setError("");
-        navigate(state?.from || "/");
+        navigate(state || "/");
       })
       .catch((err) => setError(err.code));
   };
