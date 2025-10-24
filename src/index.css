@@ -12,7 +12,7 @@ body {
   color: #f6e05e;
   transition: all 0.3s ease;
 }
-.nav .active {
+.active {
   color: #f6e05e;
   font-weight: 600;
 }
