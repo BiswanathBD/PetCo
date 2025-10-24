@@ -24,7 +24,10 @@ const SignUp = () => {
     const photoURL = form.photoUrl.value;
     const password = form.password.value;
 
-    // ✅ Password validation using setError only
+    if (name.length > 3) {
+      setError("Invalid Name");
+      return
+    }
     if (password.length < 6) {
       setError("Password must be at least 6 characters long.");
       return;
@@ -38,7 +41,6 @@ const SignUp = () => {
       return;
     }
 
-    // ✅ Continue only if valid password
     createUserWithPass(email, password)
       .then((result) => {
         toast.success("Sign Up Successfully");

@@ -11,7 +11,7 @@ const ServiceCard = ({ service }) => {
         src={image}
         alt=""
       />
-      <div className="bg-white/20 pt-20 -mt-16 rounded-xl px-4 text-yellow-400">
+      <div className="bg-white/20 pt-20 -mt-16 rounded-xl px-8 text-yellow-400">
         <h3 className="text-3xl font-semibold text-center">{serviceName}</h3>
         <div className="text-white flex justify-between items-center py-4">
           <p className="text-xl font-semibold">

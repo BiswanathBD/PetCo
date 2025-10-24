@@ -2,6 +2,7 @@ import React, { use, useEffect } from "react";
 import { useParams, useLocation, Navigate, Link } from "react-router";
 import useServiceData from "../Hooks/useServiceData";
 import { AuthContext } from "../Provider/AuthProvider";
+import { PropagateLoader } from "react-spinners";
 
 const Details = () => {
   const { id } = useParams();
@@ -25,8 +26,8 @@ const Details = () => {
 
   if (!selected) {
     return (
-      <p className="text-center text-red-500 mt-8">
-        Service not found. Please check the link.
+      <p className="text-center mt-8 flex justify-center items-center">
+        <PropagateLoader color="#f6e05e" className="my-8"></PropagateLoader>
       </p>
     );
   }
@@ -102,7 +103,7 @@ const Details = () => {
 
           <Link
             to={"/booking"}
-            className="mt-6 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold py-2 px-6 rounded-lg transition-colors duration-200"
+            className="mt-6 w-fit bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold py-2 px-6 rounded-lg transition-colors duration-200"
           >
             Book a Service
           </Link>

@@ -16,3 +16,6 @@ body {
   color: #f6e05e;
   font-weight: 600;
 }
+a, button, Link{
+  cursor: pointer;
+}

@@ -1,5 +1,6 @@
 import React, { use } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const BookService = () => {
   const { error, setError } = use(AuthContext);
@@ -8,11 +9,12 @@ const BookService = () => {
     setError("");
     const form = e.target;
     const name = form.name.value;
-    const email = form.email.value;
-    if (name.length < 2) {
+    if (name.length < 3) {
       setError("Invalid Name");
+      return
     }
-    console.log(name, email);
+    toast.success("Booking Request Placed");
+    form.reset();
   };
 
   return (

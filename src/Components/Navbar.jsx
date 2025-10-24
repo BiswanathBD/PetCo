@@ -42,11 +42,11 @@ const Navbar = () => {
           My Profile
         </NavLink>
       </div>
-      <div className="md:flex gap-4 hidden">
+      <div className="md:flex items-center gap-2 hidden">
         {user && (
           <div className="relative group">
             <img
-              className="w-10 aspect-square object-cover rounded-full  border border-yellow-400"
+              className="w-14 aspect-square object-cover rounded-full  border border-yellow-400"
               src={user.photoURL || profileIcon}
               alt=""
             />
@@ -58,7 +58,7 @@ const Navbar = () => {
         {user ? (
           <button
             onClick={handleSignOut}
-            className="hidden md:block text-[#006E5C] bg-yellow-400 font-semibold px-4 py-2 rounded-full hover:bg-white transition"
+            className="hidden h-fit md:block text-[#006E5C] bg-yellow-400 font-semibold px-4 py-2 rounded-full hover:bg-white transition"
           >
             Sign Out
           </button>
