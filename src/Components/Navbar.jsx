@@ -46,11 +46,14 @@ const Navbar = () => {
       <div className="md:flex items-center gap-2 hidden">
         {user && (
           <div className="relative group">
-            <img
-              className="w-10 aspect-square object-cover rounded-full  border border-yellow-400"
-              src={user.photoURL || profileIcon}
-              alt=""
-            />
+            <Link to={"/profile"}>
+              <img
+                className="w-10 aspect-square object-cover rounded-full  border border-yellow-400"
+                src={user.photoURL || profileIcon}
+                alt=""
+              />
+            </Link>
+
             <p className="absolute text-nowrap w-fit bg-yellow-400 text-[#006E5C] px-3 py-1 rounded-lg top-10 group-hover:top-12 font-semibold opacity-0 group-hover:opacity-100 transition-all z-20">
               {user.displayName}
             </p>

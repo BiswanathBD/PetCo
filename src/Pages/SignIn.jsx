@@ -27,7 +27,7 @@ const SignIn = () => {
         setError("");
         navigate(state || "/");
       })
-      .catch((err) => setError(err.code));
+      .catch(() => setError("Wrong Email or Password"));
   };
 
   // Google sign in
@@ -38,7 +38,7 @@ const SignIn = () => {
         setError("");
         navigate(state || "/");
       })
-      .catch((err) => setError(err.code));
+      .catch((err) => setError("err.code"));
   };
 
   return (

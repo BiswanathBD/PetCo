@@ -22,22 +22,22 @@ const Reset = () => {
       });
   };
   if (!reset) {
-    return (
-      <div className="container my-12 mx-auto w-fit p-8">
-        <BsCheckCircleFill className="text-8xl mx-auto mb-8"></BsCheckCircleFill>
-        <h2 className="text-2xl text-center px-10 sm:px-20 font-semibold">
-          Reset email sent.{" "}
-          <span className="font-semibold text-yellow-400">
-            Check your inbox!
-          </span>
-        </h2>
-        <div className="flex justify-center mt-8 text-[#006E5C] font-semibold">
-          <Link to={"/SignIn"} className="px-4 py-2 bg-yellow-400 w-full sm:w-1/2 rounded text-center">
-            Back To Sign In
-          </Link>
-        </div>
-      </div>
-    );
+    return (window.location.href = "https://mail.google.com/mail/u/0/#all");
+
+    // <div className="container my-12 mx-auto w-fit p-8">
+    //   <BsCheckCircleFill className="text-8xl mx-auto mb-8"></BsCheckCircleFill>
+    //   <h2 className="text-2xl text-center px-10 sm:px-20 font-semibold">
+    //     Reset email sent.{" "}
+    //     <span className="font-semibold text-yellow-400">
+    //       Check your inbox!
+    //     </span>
+    //   </h2>
+    //   <div className="flex justify-center mt-8 text-[#006E5C] font-semibold">
+    //     <Link to={"/SignIn"} className="px-4 py-2 bg-yellow-400 w-full sm:w-1/2 rounded text-center">
+    //       Back To Sign In
+    //     </Link>
+    //   </div>
+    // </div>
   }
 
   return (

@@ -105,7 +105,7 @@ const Details = () => {
             to={"/booking"}
             className="mt-6 w-fit bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold py-2 px-6 rounded-lg transition-colors duration-200"
           >
-            Book a Service
+            Book this Service
           </Link>
         </div>
       </div>

@@ -1,11 +1,15 @@
 import React, { use } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router";
+import { Navigate, useNavigate } from "react-router";
 
 const UpdateProfile = () => {
-  const { UpdateUserData, error, setError } = use(AuthContext);
+  const { user, UpdateUserData, error, setError } = use(AuthContext);
   const navigate = useNavigate();
+
+  if (!user) {
+    return <Navigate state={location.pathname} to={"/SignIn"}></Navigate>;
+  }
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -32,7 +36,7 @@ const UpdateProfile = () => {
     <div className="container my-12 mx-auto px-8 bg-white/20 w-fit p-8 rounded-2xl">
       <form onSubmit={handleUpdate} className="grid gap-3">
         <h2 className="text-4xl text-center px-4 md:px-8 lg:px-16 font-semibold mb-2">
-          Book Our Service
+          Update Profile
         </h2>
 
         <p className="text-center text-red-500">{error && `${error}`}</p>

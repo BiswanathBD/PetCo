@@ -8,7 +8,7 @@ import MyProfile from "./Private/MyProfile";
 import Details from "./Private/Details";
 import Reset from "./Pages/Reset";
 import BookService from "./Pages/BookService";
-import UpdateProfile from "./Pages/UpdateProfile";
+import UpdateProfile from "./Private/UpdateProfile";
 
 export const router = createBrowserRouter([
   {

@@ -24,7 +24,7 @@ const SignUp = () => {
     const photoURL = form.photoUrl.value;
     const password = form.password.value;
 
-    if (name.length > 3) {
+    if (name.length < 3) {
       setError("Invalid Name");
       return
     }

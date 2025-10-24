@@ -9,7 +9,7 @@ const ServiceCard = ({ service }) => {
       <img
         className="w-3/5 mx-auto aspect-square object-cover rounded-full border-4 border-white"
         src={image}
-        alt=""
+        alt={serviceName}
       />
       <div className="bg-white/20 pt-20 -mt-16 rounded-xl px-8 text-yellow-400">
         <h3 className="text-3xl font-semibold text-center">{serviceName}</h3>
